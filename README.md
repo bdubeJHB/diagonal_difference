@@ -3,7 +3,7 @@
 
 ### Overview
 Method(s) to calculate the absolute difference between the sums of a matrix's two diagonals as a single integer.
-This challenge is from Hackerrank's warmup algorithms section: [Click here to view challenge details](https://www.hackerrank.com/challenges/diagonal-difference)
+This challenge is from Hackerrank's warmup algorithms section: <a href="https://www.hackerrank.com/challenges/diagonal-difference)">Click here to view challenge details</a>
 
 
 ### Project Structure
