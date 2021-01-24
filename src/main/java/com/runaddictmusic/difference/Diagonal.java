@@ -2,6 +2,8 @@ package com.runaddictmusic.difference;
 
 import java.util.List;
 import java.util.ArrayList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -20,6 +22,8 @@ import java.util.ArrayList;
  * @version     1.0 24 Jan 2021
  */
 public class Diagonal {
+        private final static Logger logger = LoggerFactory.getLogger(Diagonal.class);
+
         static boolean checkIfListIsSquare(List<List<Integer>> listOfLists) {
                 int     expectedSize = 0;
 
@@ -55,10 +59,11 @@ public class Diagonal {
                 int left_diag = 0;
                 int right_diag = 0;
 
-                if(listOfLists.isEmpty() || !checkIfListIsSquare(listOfLists)) {
-                        return -1;
-                } else if(listOfLists.size() == 1) {
+                if((listOfLists.isEmpty() || listOfLists.size() == 1)
+                                && checkIfListIsSquare(listOfLists)) {
                         return 0;
+                } else if(!checkIfListIsSquare(listOfLists)) {
+                        return -1;
                 }
 
                 for(int j = listOfLists.size() - 1, i = 0;
@@ -76,11 +81,10 @@ public class Diagonal {
                 List<List<Integer>> listOfLists = new ArrayList<>();
                 List<Integer> row = new ArrayList<Integer>();
 
-                if(arrayOfArrays == null ||
-                                checkIfListIsSquare(arrayOfArrays)) {
-                        return -1;
-                } else if(arrayOfArrays.length == 1) {
+                if(arrayOfArrays == null || arrayOfArrays.length == 1) {
                         return 0;
+                } else if(checkIfListIsSquare(arrayOfArrays)) {
+                        return -1;
                 }
 
                 for(int array[] : arrayOfArrays) {

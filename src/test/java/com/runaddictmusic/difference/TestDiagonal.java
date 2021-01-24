@@ -97,5 +97,17 @@ public class TestDiagonal {
 
                 assertEquals(4, Diagonal.calculate(listOfLists));
         }
+
+        @Test
+        public void testCalculateReturnsZeroForEmptyArrayOrList() {
+                List<List<Integer>> listOfLists = new ArrayList<>();
+                int arrayOfArrays[][] = new int[][] {new int[] {}};
+
+                List<Integer> emptyList = new ArrayList<Integer>();
+                listOfLists.add(emptyList);
+
+                assertEquals(0, Diagonal.calculate(listOfLists));
+                assertEquals(0, Diagonal.calculate(arrayOfArrays));
+        }
 }
 
