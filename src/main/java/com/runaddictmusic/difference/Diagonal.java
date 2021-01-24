@@ -55,8 +55,11 @@ public class Diagonal {
                 int left_diag = 0;
                 int right_diag = 0;
 
-                if(listOfLists.isEmpty() || !checkIfListIsSquare(listOfLists))
+                if(listOfLists.isEmpty() || !checkIfListIsSquare(listOfLists)) {
                         return -1;
+                } else if(listOfLists.size() == 1) {
+                        return 0;
+                }
 
                 for(int j = listOfLists.size() - 1, i = 0;
                                 i < listOfLists.size(); i++, j--) {
@@ -69,21 +72,24 @@ public class Diagonal {
                 return (sum > 0 ? sum : sum * -1);
         }
 
-        public static int calculate(int[][] array_numbers) {
-                return 0;
-        }
+        public static int calculate(int[][] arrayOfArrays) {
+                List<List<Integer>> listOfLists = new ArrayList<>();
+                List<Integer> row = new ArrayList<Integer>();
 
-        /* --- Originally, I wanted to redirect list inputs to the array input method, but not anymore ---
-        public static int calculate(List<List<Integer>> listOfLists) {
-                int     arrayOfArrays[][] = new int[listOfLists.size()][listOfLists.get(0).size()];
-
-                for(int i = 0; i < listOfLists.size(); i++) {
-                        for(int j = 0; j < listOfLists.get(0).size(); j++) {
-                                arrayOfArrays[i][j] = listOfLists.get(i).get(j);
-                        }
+                if(arrayOfArrays == null ||
+                                checkIfListIsSquare(arrayOfArrays)) {
+                        return -1;
+                } else if(arrayOfArrays.length == 1) {
+                        return 0;
                 }
 
-                return calculate(arrayOfArrays);
+                for(int array[] : arrayOfArrays) {
+                        row = new ArrayList<Integer>();
+
+                        for(int num : array) row.add(num);
+
+                        listOfLists.add(row);
+                }
+                return calculate(listOfLists);
         }
-        --- */
 }

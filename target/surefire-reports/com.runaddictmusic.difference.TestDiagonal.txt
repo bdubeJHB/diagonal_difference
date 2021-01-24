@@ -1,8 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: com.runaddictmusic.difference.TestDiagonal
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.055 s <<< FAILURE! - in com.runaddictmusic.difference.TestDiagonal
-testDiagonalWorksOn2dLists  Time elapsed: 0.047 s  <<< FAILURE!
+Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.07 s <<< FAILURE! - in com.runaddictmusic.difference.TestDiagonal
+testCalculateWorksOnNegativeNumberArrays  Time elapsed: 0.047 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1> but was: <-1>
+	at com.runaddictmusic.difference.TestDiagonal.testCalculateWorksOnNegativeNumberArrays(TestDiagonal.java:26)
+
+testCalculateGetsCorrectResultWhenPassed2dArray  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <2> but was: <-1>
+	at com.runaddictmusic.difference.TestDiagonal.testCalculateGetsCorrectResultWhenPassed2dArray(TestDiagonal.java:17)
+
+testCalculateWorksOnListsWithDifferentlySignedIntegers  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <4> but was: <0>
-	at com.runaddictmusic.difference.TestDiagonal.testDiagonalWorksOn2dLists(TestDiagonal.java:30)
+	at com.runaddictmusic.difference.TestDiagonal.testCalculateWorksOnListsWithDifferentlySignedIntegers(TestDiagonal.java:98)
 
