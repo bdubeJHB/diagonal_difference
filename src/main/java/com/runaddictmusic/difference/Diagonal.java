@@ -20,10 +20,60 @@ import java.util.ArrayList;
  * @version     1.0 24 Jan 2021
  */
 public class Diagonal {
+        static boolean checkIfListIsSquare(List<List<Integer>> listOfLists) {
+                int     expectedSize = 0;
+
+                if(listOfLists.get(0).isEmpty()) return false;
+
+                expectedSize = listOfLists.get(0).size();
+
+                for(List<Integer> list : listOfLists) {
+                        if(list.isEmpty() || list.size() != expectedSize) {
+                                return false;
+                        }
+                }
+
+                return true;
+        }
+
+        static boolean checkIfListIsSquare(int arrayOfArrays[][]) {
+                int     expectedSize = 0;
+
+                if(arrayOfArrays[0] == null) return false;
+
+                expectedSize = arrayOfArrays[0].length;
+
+                for(int arr[] : arrayOfArrays) {
+                        if(arr == null || arr.length != expectedSize) return false;
+                }
+
+                return true;
+        }
+
+        public static int calculate(List<List<Integer>> listOfLists) {
+                int sum = 0;
+                int left_diag = 0;
+                int right_diag = 0;
+
+                if(listOfLists.isEmpty() || !checkIfListIsSquare(listOfLists))
+                        return -1;
+
+                for(int j = listOfLists.size() - 1, i = 0;
+                                i < listOfLists.size(); i++, j--) {
+                        left_diag = left_diag + listOfLists.get(i).get(i);
+                        right_diag = right_diag + listOfLists.get(i).get(j);
+                }
+
+                sum = left_diag - right_diag;
+
+                return (sum > 0 ? sum : sum * -1);
+        }
+
         public static int calculate(int[][] array_numbers) {
                 return 0;
         }
 
+        /* --- Originally, I wanted to redirect list inputs to the array input method, but not anymore ---
         public static int calculate(List<List<Integer>> listOfLists) {
                 int     arrayOfArrays[][] = new int[listOfLists.size()][listOfLists.get(0).size()];
 
@@ -35,4 +85,5 @@ public class Diagonal {
 
                 return calculate(arrayOfArrays);
         }
+        --- */
 }
